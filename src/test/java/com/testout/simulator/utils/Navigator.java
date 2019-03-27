@@ -22,7 +22,7 @@ public class Navigator {
     public void clickById(String elementId){
         actions.moveToElement(driver.findElement(By.id(elementId))).perform();
         wait.until(ExpectedConditions.elementToBeClickable(By.id(elementId)));
-        this.actions.moveToElement(driver.findElement(By.id(elementId))).click().perform();
+        this.actions.click(driver.findElement(By.id(elementId))).perform();
     }
 
     public void doubleClickById(String elementId) {

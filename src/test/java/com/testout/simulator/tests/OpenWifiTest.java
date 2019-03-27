@@ -3,15 +3,33 @@ package com.testout.simulator.tests;
 import com.testout.simulator.utils.Browser;
 import com.testout.simulator.utils.Navigator;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 import static com.testout.simulator.utils.Constants.*;
 
 public class OpenWifiTest {
+
+  private WebDriver driver;
+  private Navigator navigator;
+
+  @BeforeMethod
+  public void setup() {
+    driver = Browser.getDriver("chrome");
+    navigator = new Navigator(driver);
+  }
+
+  @AfterMethod
+  public void tearDown() {
+    //driver.close();
+    driver.quit();
+  }
+
   @Test
   public void testConnectingToWifi() throws Exception {
-    WebDriver driver = Browser.getDriver("chrome");
-    Navigator navigator = new Navigator(driver);
+    driver = Browser.getDriver("chrome");
+    navigator = new Navigator(driver);
 
     navigator.openUrl(SERVER_URL);
     navigator.doubleClickById(SETTINGS_BUTTON);
