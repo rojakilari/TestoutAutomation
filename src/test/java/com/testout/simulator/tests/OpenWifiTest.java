@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static com.testout.simulator.utils.Constants.*;
+import static org.testng.Assert.assertEquals;
 
 public class OpenWifiTest {
 
@@ -28,9 +29,6 @@ public class OpenWifiTest {
 
   @Test
   public void testConnectingToWifi() throws Exception {
-    driver = Browser.getDriver("chrome");
-    navigator = new Navigator(driver);
-
     navigator.openUrl(SERVER_URL);
     navigator.doubleClickById(SETTINGS_BUTTON);
     navigator.clickById(WI_FI);
@@ -39,4 +37,5 @@ public class OpenWifiTest {
     navigator.enter(PASSWORD_BOX, "@CorpNetWeRSecure!&");
     navigator.clickById(JOIN_BUTTON);
   }
-}
+
+  }

@@ -28,7 +28,7 @@ public class Navigator {
     public void doubleClickById(String elementId) {
         actions.moveToElement(driver.findElement(By.id(elementId))).perform();
         wait.until(ExpectedConditions.elementToBeClickable(By.id(elementId)));
-        this.actions.moveToElement(driver.findElement(By.id(elementId))).doubleClick().perform();
+        this.actions.doubleClick(driver.findElement(By.id(elementId))).perform();
     }
 
     public void openUrl(String url) {
